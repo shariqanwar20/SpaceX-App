@@ -11,6 +11,9 @@ export const Launch: React.FC<Props> = ({ id }) => {
       id: id,
     },
   });
+  const articleLink = data?.launch?.links?.article_link;
+  const videoLink = data?.launch?.links?.video_link;
+  const wikipediaLink = data?.launch?.links?.wikipedia;
   if (loading) {
     return <div>Loading</div>;
   }
@@ -30,45 +33,30 @@ export const Launch: React.FC<Props> = ({ id }) => {
       <br />
       <br />
       <div className="links-buttons-container">
-        <Button variant="outline-success links-buttons">
-          <a
-            href={
-              data?.launch?.links?.article_link !== null
-                ? data?.launch?.links?.article_link
-                : undefined
-            }
-            target="_blank"
-            rel="noreferrer"
-          >
-            Article
-          </a>
-        </Button>{" "}
-        <Button variant="outline-success links-buttons">
-          <a
-            href={
-              data?.launch?.links?.video_link !== null
-                ? data?.launch?.links?.video_link
-                : undefined
-            }
-            target="_blank"
-            rel="noreferrer"
-          >
-            Video
-          </a>
-        </Button>
-        <Button variant="outline-success links-buttons">
-          <a
-            href={
-              data?.launch?.links?.wikipedia !== null
-                ? data?.launch?.links?.wikipedia
-                : undefined
-            }
-            target="_blank"
-            rel="noreferrer"
-          >
-            Wikipedia
-          </a>
-        </Button>
+        <a
+          href={articleLink !== null ? articleLink : ""}
+          target="_blank"
+          rel="noreferrer"
+          className="links-buttons"
+        >
+          <Button variant="outline-success link-button">Article</Button>
+        </a>{" "}
+        <a
+          href={videoLink !== null ? videoLink : ""}
+          target="_blank"
+          rel="noreferrer"
+          className="links-buttons"
+        >
+          <Button variant="outline-success link-button">Video</Button>
+        </a>{" "}
+        <a
+          href={wikipediaLink !== null ? wikipediaLink : ""}
+          target="_blank"
+          rel="noreferrer"
+          className="links-buttons"
+        >
+          <Button variant="outline-success link-button">Wikipedia</Button>
+        </a>{" "}
       </div>
     </div>
   );

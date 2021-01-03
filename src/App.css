@@ -65,10 +65,6 @@
 .links-buttons {
   width: 30%;
 }
-.links-buttons > a {
-  color: white;
-}
-.links-buttons > a:hover {
-  text-decoration: none;
-  color: white;
+.link-button {
+  width: 100%;
 }
