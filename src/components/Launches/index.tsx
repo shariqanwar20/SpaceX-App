@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useRocketLaunchesQuery } from "../../generated/graphql";
 import { Launch } from "../Launch";
+import { Spinner } from "react-bootstrap";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,7 +60,11 @@ export default function Launches() {
     setValue(newValue);
   };
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div>
+        <Spinner animation="border" variant="success" />
+      </div>
+    );
   } else if (error) {
     return <div>{error}</div>;
   }

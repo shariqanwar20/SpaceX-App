@@ -4,10 +4,12 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./components/Home";
 import Launches from "./components/Launches";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Home />
       <Launches />
     </div>
