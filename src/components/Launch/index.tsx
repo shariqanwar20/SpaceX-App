@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useLaunchProfileQuery } from "../../generated/graphql";
 
 type Props = {
@@ -15,11 +15,16 @@ export const Launch: React.FC<Props> = ({ id }) => {
   const videoLink = data?.launch?.links?.video_link;
   const wikipediaLink = data?.launch?.links?.wikipedia;
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div>
+        <Spinner animation="border" variant="success" />
+      </div>
+    );
+  } else if (error) {
+    return <div>{error}</div>;
   }
   return (
     <div>
-      {console.log(id)}
       <h4 className="launchObj-heading">
         {data?.launch?.mission_name}({data?.launch?.launch_year})
       </h4>
