@@ -16,8 +16,8 @@ export const Launch: React.FC<Props> = ({ id }) => {
   const wikipediaLink = data?.launch?.links?.wikipedia;
   if (loading) {
     return (
-      <div>
-        <Spinner animation="border" variant="success" />
+      <div className="text-center">
+        <Spinner className="text-center" animation="border" variant="success" />
       </div>
     );
   } else if (error) {

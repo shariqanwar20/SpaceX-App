@@ -61,8 +61,8 @@ export default function Launches() {
   };
   if (loading) {
     return (
-      <div>
-        <Spinner animation="border" variant="success" />
+      <div className="text-center">
+        <Spinner className="text-center" animation="border" variant="success" />
       </div>
     );
   } else if (error) {
@@ -82,13 +82,19 @@ export default function Launches() {
           aria-label="scrollable auto tabs example"
         >
           {data?.launches?.map((launchObj, ind) => {
-            return <Tab label={launchObj?.mission_name} {...a11yProps(ind)} />;
+            return (
+              <Tab
+                key={ind}
+                label={launchObj?.mission_name}
+                {...a11yProps(ind)}
+              />
+            );
           })}
         </Tabs>
       </AppBar>
       {data?.launches?.map((launchObj, ind) => {
         return (
-          <TabPanel value={value} index={ind}>
+          <TabPanel key={ind} value={value} index={ind}>
             <Launch
               id={
                 launchObj?.flight_number?.toString() !== undefined
